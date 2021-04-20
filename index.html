@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/script.js" type="text/javascript" defer></script>
+</head>
+<body>
+    <section>
+        <div id="output">
+            <div id="previous-operand"></div>
+            <div id="next-operand"></div>
+        </div>
+        <button class="allClearButton span2">AC</button>
+        <button class="deleteButton">DEL</button>
+        <button class="operatorButton">÷</button>
+        <button class="valueButton">1</button>
+        <button class="valueButton">2</button>
+        <button class="valueButton">3</button>
+        <button class="operatorButton">*</button>
+        <button class="valueButton">4</button>
+        <button class="valueButton">5</button>
+        <button class="valueButton">6</button>
+        <button class="operatorButton">+</button>
+        <button class="valueButton">7</button>
+        <button class="valueButton">8</button>
+        <button class="valueButton">9</button>
+        <button class="operatorButton">-</button>
+        <button class="valueButton">.</button>
+        <button class="valueButton">0</button>
+        <button class="equalsButton span2">=</button>
+    </section>
+
+</body>
+</html>
+
+<!-- for(let i = 0; i < operator.length; i++){
+    operator[i].addEventListener('click',function(){
+        if(nextOperand.innerHTML == ''){
+            console.log("Next operand is empty");
+        }
+        else{
+            previousOperand.innerText = nextOperand.innerText + ' ' + operator[i].innerText;
+            nextOperand.innerHTML = '';
+        }
+    })
+} -->

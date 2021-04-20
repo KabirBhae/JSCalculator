@@ -1,0 +1,54 @@
+*, ::before, ::after{
+    box-sizing: border-box;
+    font-size: normal;
+    font: sans-serif;
+}
+body{
+    color: whitesmoke;
+    padding:0;
+    margin:0;
+    /* background: linear-gradient(to right, rgb(0, 0, 51),black); */
+    background: linear-gradient(to right, rgb(0, 39, 51),rgb(82, 46, 46));
+    
+}
+section{
+    display:grid;
+    justify-content:center;
+    align-content:center; min-height:100vh;
+    grid-template-columns: repeat(4,100px);
+    grid-template-rows: minmax(120px,auto) repeat(5,100px);
+}
+section button{
+    color:black;
+    cursor: pointer;
+    font-size:2rem;
+    outline: none;
+    background-color:rgba(247, 247, 247, 0.726);
+}
+section button:hover{
+    background-color:rgba(241, 241, 241, 0.856);
+}
+.span2{
+    grid-column: span 2;
+}
+#output{
+    grid-column: 1/-1;
+    background: linear-gradient(to left, rgb(0, 39, 51),rgb(82, 46, 46));
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items: flex-end;
+    padding:0 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+#previous-operand{
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.856);
+}
+
+#next-operand{
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 1);
+}
