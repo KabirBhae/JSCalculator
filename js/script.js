@@ -50,14 +50,14 @@ for(let i = 0; i < valueButton.length; i++){
 equalsButton[0].addEventListener('click',function(){
     
     equalsButton[0].addEventListener('click',function(){
-        if(nextOperand.innerText==''){                         /*previous is empty*/
+        if(nextOperand.innerText==''){                         /*nextOperand is empty*/
             // does nothing
         }
-        else {                                                  /*previous is not empty*/
+        else {                                                  /*nextOperand is not empty*/
     
             let lastCharacter = previousOperand.innerText[previousOperand.innerText.length-1];
     
-           if(  lastCharacter =='+' ||
+           if(  lastCharacter =='+' ||                          /*previousOperand is not empty*/
                 lastCharacter =='-' ||
                 lastCharacter =='*' ||
                 lastCharacter =='÷' )
@@ -69,7 +69,7 @@ equalsButton[0].addEventListener('click',function(){
                     nextOperand.innerText = result;
                 }
             
-            else{
+            else{                                               /*previousOperand is empty*/
                 //does nothing
             }
         }
