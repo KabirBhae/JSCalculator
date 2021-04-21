@@ -34,14 +34,25 @@
 </body>
 </html>
 
-<!-- for(let i = 0; i < operator.length; i++){
+for(let i = 0; i < operator.length; i++){
     operator[i].addEventListener('click',function(){
-        if(nextOperand.innerHTML == ''){
-            console.log("Next operand is empty");
+        if(nextOperand.innerHTML == ''){        /*nextOperand is empty*/
+            //does nothing
         }
-        else{
-            previousOperand.innerText = nextOperand.innerText + ' ' + operator[i].innerText;
-            nextOperand.innerHTML = '';
+        else{                                   /*nextOperand is not empty*/
+            if(previousOperand.innerHTML==''){
+                previousOperand.innerText = nextOperand.innerText + operator[i].innerText;
+                nextOperand.innerHTML = '';
+            }
+            else{
+                let variable1 = parseFloat(previousOperand.innerText);
+                let variable2 = parseFloat(nextOperand.innerText);
+                let lastCharacter = previousOperand.innerText[previousOperand.innerText.length-1];
+                let result = operation(variable1,variable2,lastCharacter);
+                nextOperand.innerText = '';
+                previousOperand.innerText = result + operator[i].innerHTML;
+                
+            }
         }
     })
-} -->
+}

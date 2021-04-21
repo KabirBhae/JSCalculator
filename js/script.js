@@ -28,108 +28,72 @@ function operation(operand1,operand2,symbol){
 }
 
 
-
 for(let i = 0; i < valueButton.length; i++){
     valueButton[i].addEventListener('click',function(){
         nextOperand.innerText = nextOperand.innerText + valueButton[i].innerText;
     })
 }
 
-// equalsButton[0].addEventListener('click',function(){
-//     // previousOperand.innerText = nextOperand.innerText;
-//     if(previousOperand.innerText==''){
-//         previousOperand.innerText = nextOperand.innerText;
-//         nextOperand.innerText = '';
-//     }
-//     else{
-
-//     }
-// })
-
-
+   
 equalsButton[0].addEventListener('click',function(){
+
+        if (nextOperand.innerText != '') {                          /*nextOperand is not empty*/
     
-    equalsButton[0].addEventListener('click',function(){
-        if(nextOperand.innerText==''){                         /*nextOperand is empty*/
-            // does nothing
-        }
-        else {                                                  /*nextOperand is not empty*/
-    
-            let lastCharacter = previousOperand.innerText[previousOperand.innerText.length-1];
-    
-           if(  lastCharacter =='+' ||                          /*previousOperand is not empty*/
-                lastCharacter =='-' ||
-                lastCharacter =='*' ||
-                lastCharacter =='÷' )
-                {
+            if(previousOperand.innerText != ''){                    /*previousOperand is not empty*/
                     let variable1 = parseFloat(previousOperand.innerText);
                     let variable2 = parseFloat(nextOperand.innerText);
-                    let result = operation(variable1,variable2,lastCharacter);
+                    let lastCharacter = previousOperand.innerText[previousOperand.innerText.length-1];
+                    let result = operation(variable1,variable2,lastCharacter); /*operation function is a custom function*/
                     previousOperand.innerText = '';
                     nextOperand.innerText = result;
-                }
-            
-            else{                                               /*previousOperand is empty*/
+            }
+            else{                                                   /*previousOperand is empty*/
                 //does nothing
             }
         }
-    })
+        else{                                                       /*nextOperand is empty*/
+            // does nothing
+        }
 })
-
 
 
 for(let i = 0; i < operator.length; i++){
     operator[i].addEventListener('click',function(){
-        if(nextOperand.innerHTML == ''){
-            //does nothing
-        }
-        else{
+        
+        if (nextOperand.innerHTML != ''){                   /*nextOperand is not empty*/
+
             if(previousOperand.innerHTML==''){
-                previousOperand.innerText = nextOperand.innerText + ' ' + operator[i].innerText;
+                previousOperand.innerText = nextOperand.innerText + operator[i].innerText;
                 nextOperand.innerHTML = '';
             }
             else{
-                let lastCharacter = previousOperand.innerText[previousOperand.innerText.length-1];
-    
                 let variable1 = parseFloat(previousOperand.innerText);
                 let variable2 = parseFloat(nextOperand.innerText);
+                let lastCharacter = previousOperand.innerText[previousOperand.innerText.length-1];
                 let result = operation(variable1,variable2,lastCharacter);
                 nextOperand.innerText = '';
                 previousOperand.innerText = result + operator[i].innerHTML;
                 
             }
         }
+        else{                                               /*nextOperand is empty*/
+            if (previousOperand.innerText != ''){
+                // console.log(previousOperand.innerText);
+                // console.log(previousOperand.innerText[previousOperand.innerText.length-1]);
+                // console.log(operator[i].innerHTML);
+
+                // previousOperand.innerText[previousOperand.innerText.length-1] = operator[i].innerHTML;
+                // console.log(previousOperand.innerText);
+
+                
+            }
+            else{
+                //do nothing
+            }
+        }
     })
 }
 
-
-// for(let i = 0; i < operator.length; i++){
-//     operator[i].addEventListener('click',function(){
-//         if(nextOperand.innerHTML == ''){         /*nextOperand is empty*/
-//             console.log("Next operand is empty");
-//         }
-        
-//         else{                               /*nextOperand is not empty*/
-//             let lastCharacter = previousOperand.innerText[previousOperand.innerText.length-1];
-    
-//            if ( lastCharacter =='+' ||
-//                 lastCharacter =='-' ||
-//                 lastCharacter =='*' ||
-//                 lastCharacter =='÷' )
-//                 {
-//                     let variable1 = parseFloat(previousOperand.innerText);
-//                     let variable2 = parseFloat(nextOperand.innerText);
-//                     let result = operation(variable1,variable2,lastCharacter);
-//                     previousOperand.innerText = '';
-//                     nextOperand.innerText = result;
-//                 }
-//             else if (previousOperand.innerText = ''){
-//                 previousOperand.innerText = nextOperand.innerText + ' ' + operator[i].innerText;
-//                 nextOperand.innerHTML = '';
-//             }
-//         }
-//     })
-// }
 
 allClear[0].addEventListener('click',function(){
     previousOperand.innerText = '';
